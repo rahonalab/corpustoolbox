@@ -1,0 +1,13 @@
+version: "2"
+services:
+  cwb:
+   image: rahonabe/corpustoolbox
+   env_file: ./secrets.env
+   domainname: ${DOMAINNAME}
+   hostname: ${FIRSTNAME}-corpustoolbox
+   build: 
+      context: ./corpustoolbox
+   volumes:
+       - ${DATA}:/var/corpora
+       - ${REGISTRY}:/usr/local/share/cwb/registry
+       - ${WORK}:/var/work
